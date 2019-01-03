@@ -1,0 +1,5 @@
+# Archives
+tablas/*.txt
+
+# Modules Node
+node_modules/

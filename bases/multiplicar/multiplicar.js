@@ -27,7 +27,7 @@ let crearArchivo = (base, limite = 10) => {
             data += `${base} * ${i} = ${base*i}\n`;
         }
 
-        fs.writeFile(`tabla-${base}.txt`, data, (err) => {
+        fs.writeFile(`./tablas/tabla-${base}.txt`, data, (err) => {
             if (err)
                 reject(err)
             else
