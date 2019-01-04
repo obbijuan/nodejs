@@ -33,6 +33,13 @@ const crear = (descripcion)=>{
     return porHacer;
 }
 
+const getListado = ()=>{
+    cargarDB();
+    return listadoPorHacer;
+}
+
+
 module.exports = {
-    crear
+    crear,
+    getListado
 }
