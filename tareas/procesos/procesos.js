@@ -10,8 +10,18 @@ const guardarDB = () => {
     })
 }
 
+const cargarDB = () => {
+    try {
+        listadoPorHacer = require('../db/data.json');
+    } catch (e) {
+        listadoPorHacer = [];
+    }
+}
+
 
 const crear = (descripcion)=>{
+
+    cargarDB();
 
     let porHacer = {
         descripcion,
@@ -20,7 +30,7 @@ const crear = (descripcion)=>{
 
     listadoPorHacer.push(porHacer);
     guardarDB();
-    return listadoPorHacer;
+    return porHacer;
 }
 
 module.exports = {
