@@ -32,8 +32,13 @@ switch (comando) {
         }else {
             console.log(colors.red('No se actualizó!'))
         }
-
         break;
+
+    case 'borrar':
+        let borrado = porHacer.borar(argv.descripcion);
+        console.log(borrado);
+        break;
+
     default:
         console.log('Comando no reconocido!');
 

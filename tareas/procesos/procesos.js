@@ -57,5 +57,6 @@ const actualizar = (descripcion, completado=true )=>{
 module.exports = {
     crear,
     getListado,
-    actualizar
+    actualizar,
+    borrar
 }
