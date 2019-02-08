@@ -1,17 +1,19 @@
 const express = require('express')
 const app = express()
 
-app.get('/', (req, res) => {
-  let salida = {
-      nombre:   'Andres',
-      edad  :   30,
-      url   :   req.url
-  }
+app.use(express.static(__dirname + '/public'))
 
-  res.send(salida);
+app.set('view engine', 'hbs')
+
+app.get('/', (req, res) => {
+
+  res.render('home', {
+      nombre:   'Juan',
+      anio  :   new Date().getFullYear()
+  });
 
 })
 
-app.listen(3000, () => {
-    console.log('Escuchando peticiones puerto 3000!')
+app.listen(8080, () => {
+    console.log('Escuchando peticiones puerto 8080!')
 })
