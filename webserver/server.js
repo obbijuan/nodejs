@@ -11,7 +11,7 @@ app.set('view engine', 'hbs')
 app.get('/', (req, res) => {
 
   res.render('home', {
-      nombre:   'Juan',
+      nombre:   'Obbijuan',
       anio  :   new Date().getFullYear()
   });
 
