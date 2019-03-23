@@ -12,6 +12,11 @@ socket.on('disconnect', function(){
     console.log('Desconectado del servidor');
 })
 
+// Escuchar informacion
+socket.on('estadoActual', function(data){
+    label.text(data.actual)
+})
+
 $('button').on('click', function(){
     socket.emit('siguienteTicket', null, function(siguienteTicket){
         label.text(siguienteTicket)
