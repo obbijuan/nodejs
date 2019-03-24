@@ -13,12 +13,14 @@ class TicketControl {
         this.ultimo = 0;
         this.hoy = new Date().getDate();
         this.tickets = []; // Tickets pendientes de revision
+        this.ultimos4 = [];
 
         let data = require('../data/data.json');
 
         if (data.hoy === this.hoy) {
             this.ultimo = data.ultimo;
             this.tickets = data.tickets;
+            this.ultimos4 = data.ultimos4;
         }else {
             this.reiniciarConteo();
         }
@@ -37,9 +39,40 @@ class TicketControl {
         return `Ticket ${this.ultimo}`;
     }
 
+    atenderTicket(escritorio){
+
+        if (this.tickets.lenght === 0) {
+            return 'No hay tickets';
+        }
+        // Obtiene el primer numero de los ticket pendientes
+        let numeroTicket = this.tickets[0].numero;
+
+        // Elimina la primera posicion del arreglo
+        this.tickets.shift();
+
+        // Instancia de nuevo ticket para ser atendido
+        let atenderTicket = new Ticket(numeroTicket, escritorio);
+
+        // Agrega al inicio del arreglo el ticket a atender
+        this.ultimos4.unshift(atenderTicket);
+
+        // Verifica que existan solo 4 tickets
+        if (this.ultimos4.lenght > 4) {
+            this.ultimos4.splice(-1,1); // Borra el ultimo elemento
+        }
+
+        console.log('Ultimos 4');
+        console.log(this.ultimos4);
+
+        this.grabarArchivo();
+        return atenderTicket;
+        
+    }
+
     reiniciarConteo(){
         this.ultimo = 0;
         this.tickets = [];
+        this.ultimos4 = [];
         console.log('Se ha inicializado el sistema');
         this.grabarArchivo();
 
@@ -49,7 +82,8 @@ class TicketControl {
         let jsonData = {
             ultimo : this.ultimo,
             hoy: this.hoy,
-            tickets : this.tickets
+            tickets : this.tickets,
+            ultimos4 : this.ultimos4
         };
 
         let jsonDataString = JSON.stringify(jsonData);
