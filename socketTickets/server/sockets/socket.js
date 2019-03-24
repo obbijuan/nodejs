@@ -30,6 +30,9 @@ io.on('connection', (client) => {
         // Retorna el ticket
         callback(atenderTicket);
         // Actualizar o notificar los cambios en los ultimos 4
+        client.broadcast.emit('ultimos4', {
+            ultimos4 : ticketControl.getUltimos4()
+        })
 
 
     })

@@ -11,6 +11,9 @@ table {
     height: 100%;
     text-align: center;
 }
+body table tbody tr td:nth-child(2){
+    width: 20%;
+}
 
 .ticket-actual {
     background-color: #282828;
