@@ -41,7 +41,7 @@ class TicketControl {
 
     atenderTicket(escritorio){
 
-        if (this.tickets.lenght === 0) {
+        if (this.tickets.length === 0) {
             return 'No hay tickets';
         }
         // Obtiene el primer numero de los ticket pendientes
@@ -66,7 +66,7 @@ class TicketControl {
 
         this.grabarArchivo();
         return atenderTicket;
-        
+
     }
 
     reiniciarConteo(){
