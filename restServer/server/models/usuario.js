@@ -35,4 +35,4 @@ let usuarioSchema = new Schema({
 
 })
 
-module.exports = mongoose.model({ 'Usuario', usuarioSchema })
+module.exports = mongoose.model('Usuario', usuarioSchema)
