@@ -21,6 +21,7 @@ let usuarioSchema = new Schema({
         required : false
     },
     rol: {
+        type: String,
         default : 'USER_ROLE'
     },
     estado: {

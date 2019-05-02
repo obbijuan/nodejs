@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 // Importamos y usamos las rutas del usuario
-app.use(require('./routes/usuario');
+app.use(require('./routes/usuario'));
 
 
 mongoose.connect('mongodb://localhost:27017/cafe', {useNewUrlParser: true}, (err, res)=>{
