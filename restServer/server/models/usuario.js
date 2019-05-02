@@ -43,6 +43,15 @@ let usuarioSchema = new Schema({
 
 })
 
+// Borra la pass para no mostrarla de vuelta
+usuarioSchema.methods.toJSON = function(){
+    let user = this;
+    userObject = user.toObject();
+    delete userObject.password;
+    return userObject;
+
+}
+
 usuarioSchema.plugin(uniqueValidator, { message: '{PATH} debe de ser unico!' });
 
 module.exports = mongoose.model('Usuario', usuarioSchema)
